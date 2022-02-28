@@ -1,0 +1,32 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+dependencies {
+    implementation gradleApi() //必须
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:3.2.1'
+////使用自定义transform时候，需要引用com.android.build.api.transform.Transform
+//    compile 'org.ow2.asm:asm:6.0'
+//    compile 'commons-io:commons-io:2.6'
+}
+version = '1.0.0'
+group = 'com.kk.plugin'
+uploadArchives {
+    repositories {
+        mavenDeployer {
+//            pom.groupId = group
+//            pom.version = version
+            pom.artifactId = 'singleclick'
+            //提交到远程服务器：
+            // repository(url: "http://www.xxx.com/repos") {
+            //    authentication(userName: "admin", password: "admin")
+            // }
+            //本地的Maven地址:当前工程下
+            repository(url: uri('./repos'))
+        }
+    }
+}
+repositories {
+    mavenCentral()
+    jcenter()
+    google()
+}
