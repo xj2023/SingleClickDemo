@@ -15,6 +15,7 @@ publishing {
         maven(MavenPublication) {
             //插件名称
             artifactId = 'singleclick'
+            from components.java
             version = '1.0.0'
             group = 'com.kk.plugin'
             description = '这是一个独立的插件id'
