@@ -1,11 +1,12 @@
 apply plugin: 'groovy'
 apply plugin: 'maven-publish'
+//apply plugin: 'java-gradle-plugin'
 dependencies {
     implementation gradleApi() //必须
-//    implementation localGroovy()
-    implementation 'com.android.tools.build:gradle:4.2.1'
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:3.2.1'
 ////使用自定义transform时候，需要引用com.android.build.api.transform.Transform
-//    compile 'org.ow2.asm:asm:6.0'
+    implementation 'org.ow2.asm:asm:6.0'
 //    compile 'commons-io:commons-io:2.6'
 }
 
