@@ -3,10 +3,13 @@ apply plugin: 'maven-publish'
 dependencies {
     implementation gradleApi() //必须
     implementation localGroovy()
-    implementation 'com.android.tools.build:gradle:3.2.1'
+    implementation 'com.android.tools.build:gradle:4.2.1'
 ////使用自定义transform时候，需要引用com.android.build.api.transform.Transform
 //    compile 'org.ow2.asm:asm:6.0'
 //    compile 'commons-io:commons-io:2.6'
+//    packagingOptions {
+//        exclude 'META-INF/DEPENDENCIES'
+//    }
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -29,6 +32,8 @@ publishing {
         }
     }
 }
+
+
 
 repositories {
     mavenCentral()
