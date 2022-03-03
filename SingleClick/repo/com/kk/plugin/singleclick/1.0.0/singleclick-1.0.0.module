@@ -1,0 +1,70 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.kk.plugin",
+    "module": "singleclick",
+    "version": "1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.7.1",
+      "buildId": "vzoxbqcapbavjjetcdn252aale"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "singleclick-1.0.0.jar",
+          "url": "singleclick-1.0.0.jar",
+          "size": 29669,
+          "sha512": "6d5751ee808deb712962e10d207c6c11ae3b7b702c4ff98e584360c92245aab4e7eb76ce738ad8c3ee292db396dbfc9ab58da49cf76da0046359ca7d08050739",
+          "sha256": "0d83a3268501fa734b792b03561e2e2ef50ab2ea7647b8f16d24e51d29c6b42c",
+          "sha1": "74a904212f160db7a1fe1f7e605ccdd39e11ad60",
+          "md5": "34fef2bb4386e9af269b6e23f323aa66"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.android.tools.build",
+          "module": "gradle",
+          "version": {
+            "requires": "3.2.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "singleclick-1.0.0.jar",
+          "url": "singleclick-1.0.0.jar",
+          "size": 29669,
+          "sha512": "6d5751ee808deb712962e10d207c6c11ae3b7b702c4ff98e584360c92245aab4e7eb76ce738ad8c3ee292db396dbfc9ab58da49cf76da0046359ca7d08050739",
+          "sha256": "0d83a3268501fa734b792b03561e2e2ef50ab2ea7647b8f16d24e51d29c6b42c",
+          "sha1": "74a904212f160db7a1fe1f7e605ccdd39e11ad60",
+          "md5": "34fef2bb4386e9af269b6e23f323aa66"
+        }
+      ]
+    }
+  ]
+}

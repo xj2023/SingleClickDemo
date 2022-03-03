@@ -1,4 +1,5 @@
 rootProject.name = "SingleClickDemo"
 include ':app'
+//includeBuild('SingleClick')
 include ':SingleClick'
 include ':SingleClick_Util'
