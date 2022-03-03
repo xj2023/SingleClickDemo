@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.7.1",
-      "buildId": "ywyxk4itvjaxre55hknx5z3e5i"
+      "buildId": "bz7j7tdl4zc2tneo7yzihy5yeu"
     }
   },
   "variants": [
@@ -29,10 +29,10 @@
           "name": "singleclick-1.0.0.jar",
           "url": "singleclick-1.0.0.jar",
           "size": 29666,
-          "sha512": "eda64725573173883e8d072264fad572eddff1cfb6a66665c7a38886c883b09d2143b2f08f026f687983259b52a4495d8fac68856389ceecf33db2c7455d4917",
-          "sha256": "b96385602fb1271606d8a344eaf70e9a7d89ddc9ec3d47f377ccaabb55f0dd99",
-          "sha1": "4457c7b84a67a61cd55c1857c7032be9193860dd",
-          "md5": "1fdfcd05d0a3195f57b0ab120580163e"
+          "sha512": "164b8f7cc8797d5bfa93caf0525847c2b7409c1877e8ff2987dcac4274cf3bd09f29e9c1954d5a3b8c4692ae65d486931dadbac5e5e479f80d7b1dc227e742e1",
+          "sha256": "69d32f2666d48b04ab0138e2b7336bb10c8d4535838dade36b638b6d28a9992b",
+          "sha1": "a211d4dfe974f8eca4c6d5f05688e901d88e2285",
+          "md5": "f884777d2bdcd0e7570ca90054d3707a"
         }
       ]
     },
@@ -59,10 +59,10 @@
           "name": "singleclick-1.0.0.jar",
           "url": "singleclick-1.0.0.jar",
           "size": 29666,
-          "sha512": "eda64725573173883e8d072264fad572eddff1cfb6a66665c7a38886c883b09d2143b2f08f026f687983259b52a4495d8fac68856389ceecf33db2c7455d4917",
-          "sha256": "b96385602fb1271606d8a344eaf70e9a7d89ddc9ec3d47f377ccaabb55f0dd99",
-          "sha1": "4457c7b84a67a61cd55c1857c7032be9193860dd",
-          "md5": "1fdfcd05d0a3195f57b0ab120580163e"
+          "sha512": "164b8f7cc8797d5bfa93caf0525847c2b7409c1877e8ff2987dcac4274cf3bd09f29e9c1954d5a3b8c4692ae65d486931dadbac5e5e479f80d7b1dc227e742e1",
+          "sha256": "69d32f2666d48b04ab0138e2b7336bb10c8d4535838dade36b638b6d28a9992b",
+          "sha1": "a211d4dfe974f8eca4c6d5f05688e901d88e2285",
+          "md5": "f884777d2bdcd0e7570ca90054d3707a"
         }
       ]
     }
