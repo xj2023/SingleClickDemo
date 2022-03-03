@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.7.1",
-      "buildId": "bz7j7tdl4zc2tneo7yzihy5yeu"
+      "buildId": "fvsku2wwzrahlm5jutd7fijtzi"
     }
   },
   "variants": [
@@ -50,7 +50,7 @@
           "group": "com.android.tools.build",
           "module": "gradle",
           "version": {
-            "requires": "3.2.1"
+            "requires": "4.2.1"
           }
         }
       ],
