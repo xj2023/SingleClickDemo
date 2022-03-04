@@ -4,6 +4,7 @@ import com.android.annotations.NonNull
 import com.android.build.api.transform.*
 import com.android.build.gradle.internal.pipeline.TransformManager
 import com.android.singleclick.concurrent.Worker
+import com.android.singleclick.concurrent.Schedulers
 import org.apache.commons.io.FileUtils
 import org.apache.commons.io.IOUtils
 import org.objectweb.asm.ClassReader
