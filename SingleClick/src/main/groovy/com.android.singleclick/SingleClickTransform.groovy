@@ -57,7 +57,8 @@ class SingleClickTransform extends Transform {
         println "--------------- ${getName()} visit start --------------- "
         Collection<TransformInput> inputs = transformInvocation.inputs
         TransformOutputProvider outputProvider = transformInvocation.outputProvider
-        boolean isIncremental = transformInvocation.isIncremental()
+//        boolean isIncremental = transformInvocation.isIncremental()
+        boolean isIncremental = isIncremental()
         println "${getName()} isIncremental ： $isIncremental"
         if (!isIncremental) {
             outputProvider.deleteAll()
@@ -273,7 +274,7 @@ class SingleClickTransform extends Transform {
      * @param fileName
      * @return
      */
-    private static boolean checkClassFile(String className) {
+    private static boolean isWeavableClass(String className) {
         return className.endsWith(".class") && !className.contains("R\$") && !className.contains("R.class") && !className.contains("BuildConfig.class");
     }
 }
