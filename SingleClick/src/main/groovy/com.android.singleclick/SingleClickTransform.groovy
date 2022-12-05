@@ -28,8 +28,11 @@ class SingleClickTransform extends Transform {
 
     private final FileTime ZERO = FileTime.fromMillis(0)
 
-    SingleClickTransform() {
+    private SingleClickExtension singleClickExtension;
+
+    SingleClickTransform(SingleClickExtension singleClickExtension) {
         this.worker = Schedulers.IO()
+        this.singleClickExtension = singleClickExtension
     }
 
     @Override
@@ -49,7 +52,7 @@ class SingleClickTransform extends Transform {
 
     @Override
     boolean isIncremental() {
-        return true
+        return false
     }
 
     @Override
@@ -60,10 +63,11 @@ class SingleClickTransform extends Transform {
 //        boolean isIncremental = transformInvocation.isIncremental()
         boolean isIncremental = isIncremental()
         println "${getName()} isIncremental ： $isIncremental"
-        if (!isIncremental) {
-            outputProvider.deleteAll()
-        }
-        //遍历inputs
+        println "${getName()} singleClickExtension ： ${singleClickExtension.enableSingleClick}"
+//        if (!isIncremental) {
+//            outputProvider.deleteAll()
+//        }
+//        //遍历inputs
         def jarTime = 0
         def fileTime = 0
         def startTime = System.currentTimeMillis();
@@ -78,15 +82,16 @@ class SingleClickTransform extends Transform {
             doJarInputTransform(isIncremental, input.jarInputs, outputProvider)
             def jarEndTime = System.currentTimeMillis()
             jarTime = jarTime + (jarEndTime - jarStartTime)
-        }
-        def jarTimeCost = (jarTime) / 1000
-        def fileTimeCost = (fileTime) / 1000
-        worker.await();
-        println "${getName()} jarTime cost ： $jarTimeCost s"
-        println "${getName()} fileTimeCost cost ： $fileTimeCost s"
 
-        def costTime = System.currentTimeMillis() - startTime;
-        println(getName() + " cost " + costTime + "ms")
+        }
+//        def jarTimeCost = (jarTime) / 1000
+//        def fileTimeCost = (fileTime) / 1000
+//        worker.await();
+//        println "${getName()} jarTime cost ： $jarTimeCost s"
+//        println "${getName()} fileTimeCost cost ： $fileTimeCost s"
+//
+//        def costTime = System.currentTimeMillis() - startTime;
+//        println(getName() + " cost " + costTime + "ms")
         println "--------------- ${getName()} visit end --------------- "
     }
 
@@ -145,8 +150,8 @@ class SingleClickTransform extends Transform {
 
     final void weaveSingleClassToFile(File inputFile, File outputFile, String inputBaseDir) throws IOException {
         if (!inputBaseDir.endsWith(FILE_SEP)) inputBaseDir = inputBaseDir + FILE_SEP;
-        boolean isWeavableClass = isWeavableClass(inputFile.getAbsolutePath().replace(inputBaseDir, "").replace(FILE_SEP, "."));
-        if (isWeavableClass) {
+        boolean isCheckClassFile = checkClassFile(inputFile.getAbsolutePath().replace(inputBaseDir, "").replace(FILE_SEP, "."));
+        if (isCheckClassFile) {
             FileUtils.touch(outputFile);
             InputStream inputStream = new FileInputStream(inputFile);
             byte[] bytes = weaveSingleClassToByteArray(inputStream);
@@ -168,6 +173,7 @@ class SingleClickTransform extends Transform {
             //列出目录所有文件（包含子文件夹，子文件夹内文件）
             directoryInput.file.eachFileRecurse { File file ->
                 def name = file.name
+//                println("transformDir ${file.getAbsolutePath()}")
                 //   println '----------- deal with "class" file <' + file.name + '> -----------'
                 if (checkClassFile(name)) {
                     //  ASM  基于事件形式  类似解析XML的SAX 逐步解析
@@ -234,12 +240,16 @@ class SingleClickTransform extends Transform {
         Enumeration<? extends ZipEntry> inEntries = inputZip.entries();
         while (inEntries.hasMoreElements()) {
             ZipEntry entry = inEntries.nextElement();
+            boolean  isDirectory = entry.isDirectory()
+            if (isDirectory){
+                println("weaveJar ${entry.getName()}")
+            }
             InputStream originalFile =
                     new BufferedInputStream(inputZip.getInputStream(entry));
             ZipEntry outEntry = new ZipEntry(entry.getName());
             byte[] newEntryContent;
             // separator of entry name is always '/', even in windows
-            if (!isWeavableClass(outEntry.getName().replace("/", "."))) {
+            if (!checkClassFile(outEntry.getName().replace("/", "."))) {
                 newEntryContent = IOUtils.toByteArray(originalFile);
             } else {
                 newEntryContent = weaveSingleClassToByteArray(originalFile);
@@ -274,7 +284,7 @@ class SingleClickTransform extends Transform {
      * @param fileName
      * @return
      */
-    private static boolean isWeavableClass(String className) {
+    private static boolean checkClassFile(String className) {
         return className.endsWith(".class") && !className.contains("R\$") && !className.contains("R.class") && !className.contains("BuildConfig.class");
     }
 }

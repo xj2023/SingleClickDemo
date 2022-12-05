@@ -3,6 +3,11 @@ plugins {
 }
 //apply plugin: 'com.android.singleclick'
 
+//singleClick{
+//    enableSingleClick = true
+//}
+
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
