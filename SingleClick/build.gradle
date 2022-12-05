@@ -1,6 +1,6 @@
 apply plugin: 'groovy'
 apply plugin: 'maven-publish'
-apply plugin: 'java-gradle-plugin'
+//apply plugin: 'java-gradle-plugin'
 dependencies {
     implementation gradleApi() //必须
     implementation localGroovy()
@@ -31,14 +31,14 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 //    }
 //}
 
-gradlePlugin {
-    plugins {
-        version {
-            id = 'com.android.singleclick'
-            implementationClass = 'com.android.singleclick.SingleClickPlugin'
-        }
-    }
-}
+//gradlePlugin {
+//    plugins {
+//        version {
+//            id = 'com.android.singleclick'
+//            implementationClass = 'com.android.singleclick.SingleClickPlugin'
+//        }
+//    }
+//}
 
 afterEvaluate {
     publishing {
