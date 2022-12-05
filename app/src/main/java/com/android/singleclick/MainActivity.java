@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.android.singleclick.utils.TimeCheck;
-import com.android.singleclick.utils.TimeCheckUtils;
 
 public class MainActivity extends AppCompatActivity {
 
