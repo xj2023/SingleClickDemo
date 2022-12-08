@@ -2,6 +2,7 @@ package com.android.singleclick
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import com.android.build.gradle.AppExtension
 
 class SingleClickPlugin implements Plugin<Project> {
 
