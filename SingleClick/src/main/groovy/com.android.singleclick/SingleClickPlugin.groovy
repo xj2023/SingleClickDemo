@@ -15,6 +15,6 @@ class SingleClickPlugin implements Plugin<Project> {
             project.plugins.apply(it.getPlugin())
         }
         // 注册 transform
-//        project.extensions.getByType(AppExtension.class).registerTransform(new SingleClickTransform(extension))
+        project.extensions.getByType(AppExtension.class).registerTransform(new SingleClickTransform(extension))
     }
 }
